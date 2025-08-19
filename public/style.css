@@ -8,6 +8,7 @@
     --light-text: #555; /* Gris medio para texto secundario */
     --border-light: #e0e0e0; /* Gris claro para bordes sutiles */
     --shadow-color: rgba(0,0,0,0.1); /* Sombra estándar */
+    --faded-grey: #f0f2f5; /* Nuevo color para el fondo de la sección de noticias */
 }
 
 /* --- Base General --- */
@@ -15,21 +16,19 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: var(--white); /* Fondo blanco por defecto */
-    line-height: 1.6; /* Mejora la legibilidad del texto */
+    background-color: var(--white);
+    line-height: 1.6;
     color: var(--text-color);
 }
 
 .index-body {
-    /* Mantiene tu imagen de fondo original, pero considera si combina con el esquema rojo/blanco.
-       Si "fondo.jpg" es oscura o tiene muchos otros colores, podrías quitar esta sección
-       para tener un fondo blanco puro en el index también, o usar una imagen más sutil. */
+    /* Tu fondo original, mantenido para consistencia */
     background-image: url('img/fondo.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center top; /* Ajustado para mejor visibilidad */
+    background-position: center top;
     min-height: 100vh;
-    background-attachment: fixed; /* Hace que el fondo se quede fijo al scrollear */
+    background-attachment: fixed;
 }
 
 video {
@@ -44,54 +43,51 @@ video {
 
 /* --- Header --- */
 header {
-    background-color: var(--primary-red); /* Fondo rojo */
-    color: var(--white); /* Texto blanco */
-    padding: 15px 5%; /* Ajustado para un header más compacto y espaciado lateral */
+    background-color: var(--primary-red);
+    color: var(--white);
+    padding: 15px 5%;
     text-align: center;
-    display: flex; /* Para alinear el logo y la navegación */
-    justify-content: space-between; /* Espacia los elementos */
-    align-items: center; /* Centra verticalmente */
-    box-shadow: 0 2px 5px var(--shadow-color); /* Sutil sombra para profundidad */
-    position: sticky; /* Hace que el header se quede arriba al scrollear */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    position: sticky;
     top: 0;
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    z-index: 1000;
 }
 
 header .logo {
-    font-size: 2em; /* Tamaño de fuente para el nombre de la organización */
+    font-size: 2em;
     font-weight: bold;
-    display: flex; /* Para alinear el logo y el texto RESCATE NACIONAL */
+    display: flex;
     align-items: center;
-    gap: 10px; /* Espacio entre la imagen y el texto */
+    gap: 10px;
 }
 
-header .img img { /* Estilo para la imagen dentro del div .img (ajustado de tu código) */
-    width: 80px; /* Tamaño del logo más adecuado para un header */
+header .img img {
+    width: 80px;
     height: auto;
     vertical-align: middle;
-    margin-right: 0; /* Ya hay gap en .logo */
-    /* Si tu logo es oscuro y necesitas que se vea blanco sobre el fondo rojo del header: */
-    /* filter: brightness(0) invert(1); */
+    margin-right: 0;
 }
-
 
 /* --- Navegación --- */
 nav ul {
-    list-style-type: none; /* Elimina las viñetas */
+    list-style-type: none;
     padding: 0;
     margin: 0;
-    display: flex; /* Para que los ítems del menú estén en línea */
-    gap: 20px; /* Espaciado entre los ítems de la navegación */
+    display: flex;
+    gap: 20px;
 }
- 
+
 nav ul li {
-    display: inline; /* Se mantiene inline, pero flex en el ul es más potente */
-    margin-right: 0; /* Se usa gap en el ul */
+    display: inline;
+    margin-right: 0;
 }
- 
+
 nav ul li a {
-    text-decoration: none; /* Elimina el subrayado del enlace */
-    color: var(--white); /* Texto blanco para contrastar con el rojo del header */
+    text-decoration: none;
+    color: var(--white);
     padding: 8px 15px;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.3s ease;
@@ -99,200 +95,199 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: var(--darker-red); /* Rojo más oscuro al pasar el ratón */
-    transform: translateY(-2px); /* Pequeño efecto de elevación */
+    background-color: var(--darker-red);
+    transform: translateY(-2px);
 }
 
-/* Estilo solo para el botón de Iniciar Sesión */
 .bto-inicio-sesion {
-    text-decoration: none; /* Elimina el subrayado del enlace */
+    text-decoration: none;
     padding: 10px 20px;
     border-radius: 5px;
-    background-color: #fb0505; 
-    color: #fb0505; /* Texto blanco para que contraste */
-    display: inline-block; /* Para que padding funcione correctamente como botón */
+    background-color: #fb0505;
+    color: #fb0505;
+    display: inline-block;
     font-weight: bold;
     text-transform: uppercase;
-    /*transition: background-color 0.3s ease, transform 0.3s ease; /* Transición suave */
 }
 
-/* Efecto hover para el botón de Iniciar Sesión */
 .bto-inicio-sesion:hover {
-    background-color: #a30000; /* Rojo más oscuro al pasar el mouse */
-    transform: 2px; /* Ligeramente más grande (opcional) */
+    background-color: #a30000;
+    transform: 2px;
 }
 
 
-/* --- Banner (principal) --- */
+/* --- Banner de Noticias --- */
 .banner {
-    /* Fondo rojo semitransparente sobre una imagen o solo rojo */
-    background: linear-gradient(rgba(251,5,5,0.7), rgba(251,5,5,0.9)), url('img/banner-noticias.jpg') no-repeat center center/cover;
-    /* Si prefieres color sólido: background-color: var(--primary-red); */
+    background-color: var(--primary-red); /* Fondo rojo sólido */
     color: var(--white);
     text-align: center;
-    padding: 80px 20px;
+    padding: 20px;
     margin-bottom: 20px;
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0 4px 10px var(--shadow-color);
 }
 
 .banner h1 {
-    font-size: 3.5em; /* Tamaño de fuente grande para el título */
+    font-size: 2.5em;
     margin: 0;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Sombra para el texto */
 }
 
-
-/* --- Sección de Noticias --- */
+/* --- Sección de Noticias (NUEVO DISEÑO) --- */
 #noticias {
-    display: grid; /* Usamos Grid para un diseño de noticias más flexible */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas responsivas */
-    gap: 20px; /* Espacio entre las noticias */
-    margin: 20px 5%; /* Margen lateral para centrar y dejar espacio */
-    padding: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 15px;
+    background-color: var(--faded-grey); /* Gris claro para el fondo de la sección */
+    display: block; /* Asegura que ocupe todo el espacio */
 }
 
-.post {
-    background-color: var(--white); /* Fondo blanco para cada noticia */
+/* Contenedor principal de la cuadrícula de noticias */
+.grid-noticias {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Columna principal y columna lateral */
+    gap: 20px;
+}
+
+/* Estilo para la noticia principal (grande) */
+.noticia-principal {
+    background-color: var(--white);
+    border: 1px solid var(--border-light);
     border-radius: 8px;
-    box-shadow: 0 4px 15px var(--shadow-color); /* Sombra más pronunciada */
-    padding: 25px;
-    text-align: left;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.noticia-principal .post {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Para que el footer de la noticia se pegue abajo */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para hover */
-    border: 1px solid var(--border-light); /* Borde sutil para definir los posts */
+    gap: 15px;
+    text-align: left;
 }
 
-.post:hover {
-    transform: translateY(-5px); /* Efecto de elevación al pasar el ratón */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Sombra más fuerte al pasar el ratón */
+.noticia-principal .post h2 {
+    font-size: 2em;
+    color: var(--darker-red);
+    margin: 0;
 }
 
-.post h2 { /* Originalmente h3 en tu código, pero h2 es más apropiado para títulos de noticias */
-    font-size: 1.8em;
-    color: var(--darker-red); /* Títulos de noticias en rojo oscuro */
-    margin-top: 0;
-    margin-bottom: 15px;
+.noticia-principal .post p {
+    font-size: 1.1em;
+    color: var(--text-color);
 }
 
-.post .content { /* Se mantiene */
-    font-size: 1em; /* Ajustado de 16px para usar em */
-    color: var(--light-text);
-    line-height: 1.7;
-    margin-bottom: 20px;
-}
-
-.post img { /* Se mantiene */
+.noticia-principal .post img,
+.noticia-principal .post video {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    margin-top: 15px;
-}
-
-.post .fecha { /* Se mantiene */
-    font-size: 0.85em; /* Ajustado de 12px */
-    color: #888;
     margin-top: 10px;
-    text-align: right;
 }
 
-/* Nota: .noticia-item y .anuncio (genérico) de tu CSS original no están siendo usados en el HTML proporcionado.
-   Si los necesitas, asegúrate de que sus colores también se adapten al rojo/blanco.
-   El .boton-rojo también parece no usarse directamente. Se mantendrá por si acaso, pero el bto-inicio-sesion es más específico. */
-.noticia-item {
-    background-color: var(--light-red); /* Adaptado a rojo claro */
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
+.noticia-principal .post small {
+    display: block;
+    text-align: right;
+    color: var(--light-text);
+    font-style: italic;
+    margin-top: 10px;
 }
-.boton-rojo {
-    background-color: var(--darker-red); /* Rojo fuerte */
-    color: var(--white);
-    border: none;
+
+/* Contenedor de las noticias secundarias (barra lateral) */
+.noticias-secundarias {
+    display: grid;
+    grid-template-columns: 1fr; /* Una sola columna para las noticias de la barra lateral */
+    gap: 20px;
+}
+
+/* Estilo para cada noticia secundaria individual */
+.noticias-secundarias .post {
+    background-color: var(--white);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.noticias-secundarias .post:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.noticias-secundarias .post h2 {
+    font-size: 1.2em;
+    color: var(--darker-red);
+    margin-top: 0;
+}
+
+.noticias-secundarias .post p {
+    font-size: 0.9em;
+    color: var(--text-color);
+    line-height: 1.4;
+    /* Limita el texto a 3 líneas para un diseño limpio */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.noticias-secundarias .post img,
+.noticias-secundarias .post video {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.noticias-secundarias .post small {
+    display: block;
+    text-align: right;
+    color: var(--light-text);
+    font-style: italic;
+    margin-top: 10px;
+}
+
+/* Paginación */
+.paginacion {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.paginacion button {
     padding: 10px 20px;
-    font-size: 16px;
-    font-family: Arial, sans-serif;
+    background-color: var(--primary-red);
+    color: white;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
     transition: background-color 0.3s ease;
 }
-.boton-rojo:hover {
-    background-color: #a30000;
-}
-.anuncio { /* Si este estilo de anuncio genérico es para algo más, se adapta */
-    background-color: var(--light-red); /* Fondo rojo claro */
-    border-left: 6px solid var(--darker-red); /* Rojo fuerte */
-    padding: 15px 20px;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 800px;
-    border-radius: 5px;
-    box-shadow: 0 2px 6px var(--shadow-color);
-}
-.anuncio h3 {
-    margin: 0 0 10px;
-    color: var(--darker-red);
-    font-size: 20px;
-}
-.anuncio p {
-    margin: 0;
-    color: var(--text-color);
-    font-size: 16px;
+
+.paginacion button:hover {
+    background-color: var(--darker-red);
 }
 
-
-/* --- Anuncios Laterales (optimizado) --- */
+/* --- Anuncios Laterales --- */
 .anuncios-laterales {
-    position: relative; /* Contenedor para los anuncios */
-    width: 100%; /* Ocupa todo el ancho */
-    display: flex; /* Para posicionar los anuncios */
-    justify-content: space-between; /* Espacia los anuncios a los lados */
-    pointer-events: none; /* Permite clickear a través si no hay contenido */
-}
-
-.anuncio-izquierdo,
-.anuncio-derecho {
-    position: fixed; /* Fija los anuncios en la pantalla */
-    top: 180px; /* Ajusta la posición vertical */
-    width: 250px; /* Ancho fijo para los anuncios */
-    background-color: var(--white); /* Fondo blanco */
-    border: 1px solid var(--primary-red); /* Borde rojo */
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 4px 10px var(--shadow-color);
     text-align: center;
-    z-index: 998; /* Un poco menos que el header */
-    pointer-events: auto; /* Permite interactuar con los anuncios */
+    margin: 20px auto;
 }
 
-.anuncio-derecho { /* Se mantiene como en tu código, pero ajustado */
-    right: 20px;
-}
-
-.anuncio-derecho img { /* Se mantiene como en tu código, pero ajustado */
-    width: 100%;
+.anuncio-derecho img {
+    max-width: 100%;
     height: auto;
-    border-radius: 5px; /* Bordes ligeramente redondeados para la imagen */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.anuncio-izquierdo { /* Se mantiene como en tu código, pero ajustado */
-    left: 20px;
-    /* Tu código tenía position: inherit y right: 10px; para el izquierdo, lo cual lo colocaba a la derecha.
-       Lo he cambiado a 'left: 20px' y 'position: fixed' para que funcione como un anuncio izquierdo real. */
-}
-
-.anuncio-izquierdo img { /* Se mantiene como en tu código, pero ajustado */
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-
-/* --- Footer (Diseño de varias columnas en rojo y blanco) --- */
+/* --- Footer --- */
 .site-footer {
-    background-color: var(--primary-red); /* Fondo rojo principal */
-    color: var(--white); /* Texto blanco */
+    background-color: var(--primary-red);
+    color: var(--white);
     padding: 40px 0 20px;
     font-size: 0.95em;
     line-height: 1.6;
@@ -315,7 +310,7 @@ nav ul li a:hover {
 }
 
 .footer-column h3 {
-    color: var(--white); /* Títulos de columna blancos */
+    color: var(--white);
     font-size: 1.3em;
     margin-bottom: 20px;
     position: relative;
@@ -329,7 +324,7 @@ nav ul li a:hover {
     bottom: 0;
     width: 50px;
     height: 3px;
-    background-color: var(--white); /* Línea blanca debajo de los títulos */
+    background-color: var(--white);
 }
 
 .footer-column ul {
@@ -346,22 +341,21 @@ nav ul li a:hover {
 }
 
 .footer-column ul li i {
-    color: var(--white); /* Íconos blancos de contacto */
+    color: var(--white);
     font-size: 1.1em;
     margin-top: 3px;
 }
 
 .footer-column ul li a {
-    color: var(--white); /* Enlaces blancos */
+    color: var(--white);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .footer-column ul li a:hover {
-    color: #f2f2f2; /* Gris muy claro al pasar el ratón */
+    color: #f2f2f2;
 }
 
-/* Redes Sociales con fondo blanco y texto rojo */
 .social-icons {
     display: flex;
     gap: 15px;
@@ -369,8 +363,8 @@ nav ul li a:hover {
 }
 
 .social-icons a {
-    color: var(--primary-red); /* Íconos de redes sociales en rojo */
-    background-color: var(--white); /* Fondo blanco para los círculos de los íconos */
+    color: var(--primary-red);
+    background-color: var(--white);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -383,14 +377,13 @@ nav ul li a:hover {
 }
 
 .social-icons a:hover {
-    background-color: #f2f2f2; /* Gris claro al pasar el ratón sobre el círculo */
-    color: var(--darker-red); /* Rojo oscuro para el ícono al pasar el ratón */
+    background-color: #f2f2f2;
+    color: var(--darker-red);
     transform: translateY(-3px);
 }
 
-/* Parte inferior del Footer (Logo y Derechos de Autor) */
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.3); /* Línea divisoria blanca semi-transparente */
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
     margin-top: 30px;
     padding-top: 20px;
     text-align: center;
@@ -403,29 +396,23 @@ nav ul li a:hover {
 .footer-logo img {
     max-width: 80px;
     height: auto;
-    /* Si tu logo 'loo-2.png' es oscuro y necesitas que se vea blanco sobre el fondo rojo del footer: */
-    /* filter: brightness(0) invert(1); */
-    /* Si tu logo ya es blanco, puedes quitar la línea de filter */
 }
 
 .footer-bottom p {
     margin: 0;
     font-size: 0.85em;
-    color: var(--white); /* Texto de derechos de autor blanco */
+    color: var(--white);
 }
 
-/* --- ESTILOS PARA PAGINAS INTERNAS (como "Nosotros") --- */
-
+/* --- ESTILOS PARA PAGINAS INTERNAS --- */
 .inner-page-body {
-    background-color: var(--white); /* Fondo blanco para páginas sin imagen de fondo */
-    background-image: none; /* Asegura que no tenga la imagen de fondo de index-body */
-    min-height: auto; /* Permite que la altura se ajuste al contenido */
+    background-color: var(--white);
+    background-image: none;
+    min-height: auto;
 }
 
 .page-banner {
-    /* Fondo rojo para el banner de páginas internas */
-    background: linear-gradient(rgba(251,5,5,0.7), rgba(251,5,5,0.9)), url('img/banner-nosotros.jpg') no-repeat center center/cover;
-    /* O simplemente: background-color: var(--primary-red); */
+    background-color: var(--primary-red);
     color: var(--white);
     text-align: center;
     padding: 60px 20px;
@@ -448,29 +435,29 @@ nav ul li a:hover {
 }
 
 .content-wrapper {
-    max-width: 900px; /* Ancho máximo para el contenido principal */
-    margin: 20px auto; /* Centra el contenido */
-    padding: 0 20px; /* Padding a los lados */
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 20px;
 }
 
 .info-section {
-    background-color: var(--white); /* Fondo blanco */
+    background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 4px 15px var(--shadow-color);
     padding: 30px;
     margin-bottom: 30px;
     line-height: 1.7;
-    border: 1px solid var(--border-light); /* Borde sutil para definir las secciones */
+    border: 1px solid var(--border-light);
 }
 
 .section-title {
-    color: var(--primary-red); /* Títulos de sección en rojo */
+    color: var(--primary-red);
     font-size: 2.2em;
     text-align: center;
     margin-bottom: 25px;
-    border-bottom: 3px solid var(--primary-red); /* Línea roja */
+    border-bottom: 3px solid var(--primary-red);
     padding-bottom: 10px;
-    display: inline-block; /* Para que la línea solo ocupe el ancho del texto */
+    display: inline-block;
     width: auto;
     left: 50%;
     transform: translateX(-50%);
@@ -480,25 +467,24 @@ nav ul li a:hover {
 .info-section p {
     font-size: 1.1em;
     color: var(--text-color);
-    text-align: justify; /* Justifica el texto para una lectura más formal */
+    text-align: justify;
     margin-bottom: 15px;
 }
 
-/* Estilos específicos para la sección de Valores */
 .values-section {
-    background-color: var(--white); /* Fondo blanco */
+    background-color: var(--white);
 }
 
 .values-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 2 o 3 columnas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
     margin-top: 20px;
 }
 
 .value-item {
-    background-color: var(--light-red); /* Fondo rojo muy claro para ítems de valor */
-    border: 1px solid var(--primary-red); /* Borde rojo */
+    background-color: var(--light-red);
+    border: 1px solid var(--primary-red);
     border-radius: 8px;
     padding: 20px;
     text-align: center;
@@ -508,18 +494,20 @@ nav ul li a:hover {
 
 .value-item:hover {
     transform: translateY(-5px);
-    background-color: var(--primary-red); /* Fondo rojo al pasar el ratón */
-    color: var(--white); /* Texto blanco al pasar el ratón */
+    background-color: var(--primary-red);
+    color: var(--white);
 }
+
 .value-item:hover h3 {
-    color: var(--white); /* Títulos blancos al pasar el ratón */
+    color: var(--white);
 }
+
 .value-item:hover p {
-    color: var(--white); /* Texto de párrafo blanco al pasar el ratón */
+    color: var(--white);
 }
 
 .value-item h3 {
-    color: var(--darker-red); /* Títulos de valor en rojo oscuro */
+    color: var(--darker-red);
     font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 10px;
@@ -531,7 +519,6 @@ nav ul li a:hover {
     text-align: center;
 }
 
-/* Estilos específicos para la sección de Contactos */
 .contact-section {
     text-align: center;
 }
@@ -543,20 +530,20 @@ nav ul li a:hover {
 }
 
 .contact-info a {
-    color: var(--primary-red); /* Enlaces de contacto en rojo */
+    color: var(--primary-red);
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .contact-info a:hover {
-    color: var(--darker-red); /* Rojo oscuro al pasar el ratón */
+    color: var(--darker-red);
     text-decoration: underline;
 }
 
 .contact-map {
     margin-top: 25px;
-    border: 1px solid var(--border-light); /* Borde sutil */
+    border: 1px solid var(--border-light);
     border-radius: 8px;
     overflow: hidden;
 }
@@ -567,86 +554,57 @@ nav ul li a:hover {
     margin-top: 10px;
 }
 
-.paginacion {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-  margin-bottom: 40px;
-}
-
-.paginacion button {
-  padding: 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.paginacion button:hover {
-  background-color: #0056b3;
-}
-
-
-
 
 /* --- Media Queries (Responsividad) --- */
-@media (max-width: 1200px) {
-    .anuncio-derecho,
-    .anuncio-izquierdo {
-        width: 180px; /* Anuncios más pequeños en pantallas medianas */
-    }
-}
-
 @media (max-width: 900px) {
     header {
-        flex-direction: column; /* Apila el logo y la navegación */
+        flex-direction: column;
         gap: 10px;
     }
 
     nav ul {
-        flex-direction: column; /* Apila los ítems del menú */
+        flex-direction: column;
         gap: 10px;
     }
 
     nav ul li a {
-        display: block; /* Ocupa todo el ancho disponible */
+        display: block;
         text-align: center;
     }
 
     .banner h1 {
         font-size: 2.5em;
     }
-
-    #noticias {
-        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
-        margin: 20px;
+    
+    .grid-noticias {
+        grid-template-columns: 1fr; /* Una sola columna para todos los elementos */
+    }
+    
+    .noticia-principal .post {
+        flex-direction: column; /* Apila imagen y texto en la noticia principal */
     }
 
-    .anuncio-izquierdo,
-    .anuncio-derecho {
-        display: none; /* Oculta los anuncios laterales en pantallas pequeñas */
+    .noticia-principal .post img,
+    .noticia-principal .post video {
+        width: 100%;
     }
 
-    /* Footer responsivo */
     .footer-column {
-        min-width: 100%; /* Las columnas ocupan todo el ancho en pantallas pequeñas */
-        text-align: center; /* Centra el texto */
+        min-width: 100%;
+        text-align: center;
     }
 
     .footer-column h3::after {
         left: 50%;
-        transform: translateX(-50%); /* Centra la línea debajo del título */
+        transform: translateX(-50%);
     }
 
     .footer-column ul li {
-        justify-content: center; /* Centra los ítems de lista */
+        justify-content: center;
     }
 
     .social-icons {
-        justify-content: center; /* Centra los íconos sociales */
+        justify-content: center;
     }
 }
 
@@ -701,7 +659,6 @@ nav ul li a:hover {
     .value-item h3 {
         font-size: 1.3em;
     }
-    /* Footer responsivo */
     .site-footer {
         padding: 30px 0 15px;
     }
